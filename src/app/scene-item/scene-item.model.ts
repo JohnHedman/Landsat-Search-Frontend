@@ -1,7 +1,7 @@
 export interface SceneItem {
    id : string;
    scene_id : string;
-   date : Date;
+   date : string;
    cloud_cover : number;
    wrs_path : number;
    wrs_row : number;

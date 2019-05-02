@@ -40,15 +40,11 @@ export class SceneCatalogComponent implements OnInit {
   }
 
   checkResponse(response){
-    this.sceneItems.push(response.body);
-    console.log(response);
-    console.log("Body: " + response._body);
     const results = JSON.parse(response._body).hits.hits;
-    results.forEach(element => {
-      console.log(element._id);   
+    results.forEach(element => { 
       const scene: SceneItem = {
         id : element._id,
-        date : element._source.cloud_cover,
+        date : element._source.scene_date,
         cloud_cover : element._source.cloud_cover,
         scene_id : element._source.scene_id,
         wrs_path : element._source.wrs_path,
@@ -59,8 +55,8 @@ export class SceneCatalogComponent implements OnInit {
         small_thumbnail : element._source.s3_location + element._id + "_thumb_small.jpg",
         large_thumbnail : element._source.s3_location + element._id + "_thumb_large.jpg",
       }
-      this.sceneItems.push(scene); 
+      console.log("New Object: " + JSON.stringify(scene));
+      this.sceneItems.push(scene);
     });
-    console.log("Next: " + JSON.stringify(JSON.parse(response._body).hits.hits));
   }
 }

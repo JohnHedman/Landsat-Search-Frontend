@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { SceneItem } from './scene-item.model';
 
 @Component({
   selector: 'app-scene-item',
@@ -6,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./scene-item.component.css']
 })
 export class SceneItemComponent implements OnInit {
-  @Input() itemName = '';
+  @Input() scene : SceneItem;
 
   constructor() {}
 
