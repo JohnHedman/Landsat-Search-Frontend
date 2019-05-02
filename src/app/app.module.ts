@@ -6,13 +6,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
-import { Injectable } from '@angular/core';
 import { AppComponent } from './app.component';
 import { SceneItemComponent } from './scene-item/scene-item.component';
 import { SceneCatalogComponent } from './scene-catalog/scene-catalog.component';
 import { MenuToolbarComponent } from './menu-toolbar/menu-toolbar.component';
-import { MenuButtonComponent } from './menu-button/menu-button.component';
 import { SearchInputComponent } from './search-input/search-input.component';
 import { HttpService } from './scene-catalog/http.service';
 
@@ -22,7 +21,6 @@ import { HttpService } from './scene-catalog/http.service';
     SceneItemComponent,
     SceneCatalogComponent,
     MenuToolbarComponent,
-    MenuButtonComponent,
     SearchInputComponent
   ],
   imports: [
@@ -33,6 +31,7 @@ import { HttpService } from './scene-catalog/http.service';
     MatToolbarModule,
     MatIconModule,
     MatFormFieldModule,
+    MatButtonModule,
     HttpClientModule,
   ],
   providers: [HttpService],
