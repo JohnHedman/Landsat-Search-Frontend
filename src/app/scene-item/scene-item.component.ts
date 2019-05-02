@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-scene-item',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./scene-item.component.css']
 })
 export class SceneItemComponent implements OnInit {
+  @Input() itemName = '';
 
   constructor() {}
 

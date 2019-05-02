@@ -11,8 +11,6 @@
     [(ngModel)]="longitudeInput">
 
 
-
-
 <p>{{latitudeInput}}</p>
 <p>{{longitudeInput}}</p>
 
@@ -23,4 +21,4 @@
 <!-- <p *ngIf="expression">No Results found.  Try to widen your search!</p> -->
 <h3 *ngIf="currentlySearching">Searching ...</h3>
 
-<app-scene-item *ngFor="let item of items; let i = index"></app-scene-item>
+<app-scene-item *ngFor="let itemName of sceneItems; let i = index" [itemName]="itemName"></app-scene-item>

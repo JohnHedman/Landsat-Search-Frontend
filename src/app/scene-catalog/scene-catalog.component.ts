@@ -31,10 +31,25 @@ export class SceneCatalogComponent implements OnInit {
     const body = '?lat=' + this.latitudeInput + '&lon=' + this.longitudeInput;
     this.httpService.getItems(body)
       .subscribe(
-        (response) => console.log(response),
+        (response) => this.checkResponse(response),
         (error) => console.log('Error:' + error)
       );
 
     this.currentlySearching = false;
+  }
+
+  checkResponse(response){
+    this.sceneItems.push(response.body);
+    console.log(response);
+    console.log("Body: " + response._body);
+    const results = JSON.parse(response._body).hits.hits;
+    results.forEach(element => {
+      // console.log(element._id);   
+      // const scene = {
+      //   id = 
+      // }
+      // this.sceneItems.push(scene);   
+    });
+    console.log("Next: " + JSON.stringify(JSON.parse(response._body).hits.hits));
   }
 }
