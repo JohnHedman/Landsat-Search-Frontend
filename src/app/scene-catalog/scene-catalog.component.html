@@ -1,22 +1,22 @@
-<label>Latitude</label>
-<input
-    type="text"
-    class="form-control"
-    [(ngModel)]="latitudeInput">
+<mat-form-field appearance="outline">
+    <mat-label>Latitude</mat-label>
+    <input
+        matInput
+        type="number"
+        [(ngModel)]="latitudeInput">
+</mat-form-field>
 
-<label>Longitude</label>
-<input
-    type="text"
-    class="form-control"
-    [(ngModel)]="longitudeInput">
-
-
-<p>{{latitudeInput}}</p>
-<p>{{longitudeInput}}</p>
+<mat-form-field appearance="outline">
+    <mat-label>Longitude</mat-label>
+    <input
+        matInput
+        type="number"
+        [(ngModel)]="longitudeInput">
+</mat-form-field>
 
 <button
-    class="btn btn-primary"
-    (click)="onSearchElastic()">Search!</button>
+    mat-icon-button
+    (click)="onSearchElastic()"><mat-icon>search</mat-icon></button>
 
 <br>
 <div>

@@ -1,12 +1,12 @@
-.example-icon {
+.icon {
     padding: 0 14px;
   }
   
-  .example-spacer {
+  .spacer {
     flex: 1 1 auto;
   }
   
-.example-button-row button,
-.example-button-row a {
+.button-row button,
+.button-row a {
   margin-right: 8px;
 }
