@@ -17,6 +17,8 @@ import { SceneCatalogComponent } from './scene-catalog/scene-catalog.component';
 import { MenuToolbarComponent } from './menu-toolbar/menu-toolbar.component';
 import { SearchInputComponent } from './search-input/search-input.component';
 import { HttpService } from './scene-catalog/http.service';
+import { GoogleMapComponent } from './google-map/google-map.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,10 @@ import { HttpService } from './scene-catalog/http.service';
     SceneItemComponent,
     SceneCatalogComponent,
     MenuToolbarComponent,
-    SearchInputComponent
+    SearchInputComponent,
+    MenuButtonComponent,
+    SearchInputComponent,
+    GoogleMapComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +45,9 @@ import { HttpService } from './scene-catalog/http.service';
     MatDatepickerModule,
     MatNativeDateModule,
     HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyC4GdTMBRoEROp2ADAGCAiaqjzRby0XjRM'
+    })
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]

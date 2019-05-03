@@ -40,6 +40,7 @@ export class SceneCatalogComponent implements OnInit {
   }
 
   checkResponse(response){
+    const bucketURL = 'https://s3-us-west-2.amazonaws.com/landsat-pds/';
     const results = JSON.parse(response._body).hits.hits;
     results.forEach(element => { 
       const scene: SceneItem = {
@@ -49,11 +50,11 @@ export class SceneCatalogComponent implements OnInit {
         scene_id : element._source.scene_id,
         wrs_path : element._source.wrs_path,
         wrs_row : element._source.wrs_row,
-        s3_location : element._source.s3_location,
+        s3_location : bucketURL + element._source.s3_location,
         sun_azimuth : element._source.sun_azimuth,
         sun_elevation : element._source.sun_elevation,
-        small_thumbnail : element._source.s3_location + element._id + "_thumb_small.jpg",
-        large_thumbnail : element._source.s3_location + element._id + "_thumb_large.jpg",
+        small_thumbnail : bucketURL + element._source.s3_location + element._id + "_thumb_small.jpg",
+        large_thumbnail : bucketURL + element._source.s3_location + element._id + "_thumb_large.jpg",
       }
       console.log("New Object: " + JSON.stringify(scene));
       this.sceneItems.push(scene);

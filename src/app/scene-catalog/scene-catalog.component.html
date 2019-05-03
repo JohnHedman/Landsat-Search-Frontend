@@ -1,6 +1,9 @@
 <app-search-input></app-search-input>
 
-<!-- <p *ngIf="expression">No Results found.  Try to widen your search!</p> -->
-<h3 *ngIf="currentlySearching">Searching ...</h3>
+<br>
+<div>
+    <!-- <p *ngIf="expression">No Results found.  Try to widen your search!</p> -->
+    <h3 *ngIf="currentlySearching">Searching ...</h3>
+    <app-scene-item *ngFor="let item of sceneItems; let i = index" [scene]="item"></app-scene-item>
+</div>
 
-<app-scene-item *ngFor="let item of sceneItems; let i = index" [scene]="item"></app-scene-item>
