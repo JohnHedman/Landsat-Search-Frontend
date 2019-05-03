@@ -19,14 +19,13 @@ export class SearchInputComponent {
   searchForm = new FormGroup({
     longitude: new FormControl(null, Validators.required),
     latitude: new FormControl(null, Validators.required),
-    cloud_cover: new FormControl(),
-    sun_elevation: new FormControl(),
+    cloud_cover: new FormControl(null, [Validators.min(0), Validators.max(100)]),
+    sun_elevation: new FormControl(null, [Validators.min(0), Validators.max(100)]),
     start_date: new FormControl(),
     end_date: new FormControl()
   });
 
   onSearch() {
-    console.log(this.coordinates);
     if (this.searchForm.valid) {
       this.search.emit(this.searchForm.value);
     }
