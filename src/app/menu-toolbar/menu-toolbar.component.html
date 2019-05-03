@@ -1,10 +1,13 @@
-
+<mat-menu #userMenu>
+  <button (click)="currentUser = user" *ngFor="let user of userNames" mat-menu-item>{{ user.name }}</button>
+</mat-menu>
 
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <button mat-button><h1>Landsat</h1></button>
     <button mat-button>Search</button>
+    <button mat-button>Profile</button>
     <span class="spacer"></span>
-    <button mat-button [matMenuTriggerFor]="">Login</button>
+    <button mat-button [matMenuTriggerFor]="userMenu">{{ currentUser ? currentUser.name : 'Login' }}</button>
   </mat-toolbar-row>
 </mat-toolbar>
