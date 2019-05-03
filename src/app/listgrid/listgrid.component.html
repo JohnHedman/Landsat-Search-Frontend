@@ -1,0 +1,26 @@
+<mat-card>
+  <mat-grid-list cols="4" rowHeight="100px">
+      <mat-grid-tile [rowspan]="2"> <!-- TILE #1 -->
+          <input type="image" [src]="scene.large_thumbnail" alt="Image">
+      </mat-grid-tile>
+      <mat-grid-tile class="tiles"> <!-- TILE #2 -->
+          ID: {{scene.id}}
+      </mat-grid-tile> 
+      <mat-grid-tile class="tiles"> <!-- TILE #3 -->
+          Cloud Cover: {{scene.cloud_cover}}
+      </mat-grid-tile>
+      <mat-grid-tile class="tiles"> <!-- TILE #4 -->
+          WRS Path: {{scene.wrs_path}}<br>
+          WRS Row:{{scene.wrs_row}}
+      </mat-grid-tile>
+      <mat-grid-tile class="tiles"> <!-- TILE #5 -->
+          Date: {{scene.date}}
+      </mat-grid-tile>
+      <mat-grid-tile class="tiles"> <!-- TILE #6 -->
+          Sun Elevation: {{scene.sun_elevation}}
+      </mat-grid-tile>
+      <mat-grid-tile class="tiles"> <!-- TILE #7 -->
+        <button mat-button (click)="onSaveScene()">Save</button>
+      </mat-grid-tile>
+  </mat-grid-list>
+</mat-card>
