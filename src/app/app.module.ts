@@ -27,7 +27,6 @@ import { AgmCoreModule } from '@agm/core';
     SceneCatalogComponent,
     MenuToolbarComponent,
     SearchInputComponent,
-    MenuButtonComponent,
     SearchInputComponent,
     GoogleMapComponent
   ],
