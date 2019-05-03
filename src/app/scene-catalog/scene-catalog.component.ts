@@ -30,22 +30,26 @@ export class SceneCatalogComponent implements OnInit {
     this.currentlySearching = true;
     this.sceneItems = [];
 
-    const body = this.buildQueryString({
-      lat: parameters.latitude,
-      lon: parameters.longitude,
-      cc: parameters.cloud_cover,
-      se: parameters.sun_elevation,
-      sd: this.parseQueryDate(parameters.start_date),
-      ed: this.parseQueryDate(parameters.end_date)
-    });
+    if (parameters.scenes) {
+      this.getScenes(parameters.scenes);
+    } else {
+      const body = this.buildQueryString({
+        lat: parameters.latitude,
+        lon: parameters.longitude,
+        cc: parameters.cloud_cover,
+        se: parameters.sun_elevation,
+        sd: this.parseQueryDate(parameters.start_date),
+        ed: this.parseQueryDate(parameters.end_date)
+      });
 
-    console.log(`Query: ${body}`);
+      console.log(`Query: ${body}`);
 
-    this.httpService.getItems(body)
-      .subscribe(
-        (response) => this.checkResponse(response),
-        (error) => console.error('Error:' + error)
-      );
+      this.httpService.getItems(body)
+        .subscribe(
+          (response) => this.checkResponse(response),
+          (error) => console.error('Error:' + error)
+        );
+    }
 
     this.currentlySearching = false;
   }
@@ -70,6 +74,12 @@ export class SceneCatalogComponent implements OnInit {
       console.log('New Object: ' + JSON.stringify(scene));
       this.sceneItems.push(scene);
     });
+  }
+
+  private async getScenes(sceneIds: string[]) {
+    for (const id of sceneIds) {
+      this.checkResponse(await this.httpService.getScene(this.buildQueryString({ ID: id })).toPromise());
+    }
   }
 
   private buildQueryString(searchParameters: any) {

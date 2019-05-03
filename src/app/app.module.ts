@@ -24,6 +24,7 @@ import { AgmCoreModule } from '@agm/core';
 import { GoogleSigninComponent } from './google-signin/google-signin.component';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider} from "angularx-social-login";
+import { UserService } from './google-signin/user.service';
 
 let config = new AuthServiceConfig([
   {
@@ -71,7 +72,7 @@ export function provideConfig() {
   providers: [HttpService, {
     provide: AuthServiceConfig,
     useFactory: provideConfig
-  }],
+  }, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

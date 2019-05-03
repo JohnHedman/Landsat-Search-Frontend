@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../google-signin/user.service';
 
 export interface User {
   name: string;
@@ -11,20 +12,19 @@ export interface User {
   styleUrls: ['./menu-toolbar.component.css']
 })
 export class MenuToolbarComponent implements OnInit {
-  userNames: User[] = [
-    { name: 'John' },
-    { name: 'Hamer' },
-    { name: 'Werpy' },
-    { name: 'Jacob' },
-    { name: 'Jamison' },
-    { name: 'Gamradt' }
-  ];
+  userNames: User[];
 
-  currentUser: User = this.userNames[0];
+  currentUser: User;
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.userNames = this.userService.userNames;
+    this.currentUser = this.userService.currentUser;
+  }
+
+  login(user: string) {
+    this.userService.currentUser.name = user;
   }
 
 }

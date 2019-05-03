@@ -55,6 +55,10 @@
     <button mat-icon-button>
       <mat-icon>search</mat-icon>
     </button>
+    <span>OR</span>
+    <button mat-button type="button" (click)="onSearchFavorites()">
+      User Favorites
+    </button>
   </form>
   
   <app-google-map [(coordinates)]="coordinates"></app-google-map>
