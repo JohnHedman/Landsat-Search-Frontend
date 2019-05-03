@@ -25,6 +25,7 @@ import { GoogleSigninComponent } from './google-signin/google-signin.component';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider} from "angularx-social-login";
 import { UserService } from './google-signin/user.service';
+import { ListGridComponent } from './listgrid/listgrid.component';
 
 let config = new AuthServiceConfig([
   {
@@ -46,7 +47,8 @@ export function provideConfig() {
     SearchInputComponent,
     SearchInputComponent,
     GoogleMapComponent,
-    GoogleSigninComponent
+    GoogleSigninComponent,
+    ListGridComponent
   ],
   imports: [
     BrowserModule,
