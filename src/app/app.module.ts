@@ -17,6 +17,20 @@ import { SearchInputComponent } from './search-input/search-input.component';
 import { HttpService } from './scene-catalog/http.service';
 import { GoogleMapComponent } from './google-map/google-map.component';
 import { AgmCoreModule } from '@agm/core';
+import { GoogleSigninComponent } from './google-signin/google-signin.component';
+import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
+import { GoogleLoginProvider} from "angularx-social-login";
+
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider("Google-OAuth-Client-Id")
+  }
+]);
+
+export function provideConfig() {
+  return config;
+}
 
 @NgModule({
   declarations: [
@@ -25,9 +39,9 @@ import { AgmCoreModule } from '@agm/core';
     SceneCatalogComponent,
     MenuToolbarComponent,
     SearchInputComponent,
-    MenuButtonComponent,
     SearchInputComponent,
-    GoogleMapComponent
+    GoogleMapComponent,
+    GoogleSigninComponent
   ],
   imports: [
     BrowserModule,
@@ -41,10 +55,14 @@ import { AgmCoreModule } from '@agm/core';
     MatInputModule,
     HttpClientModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyC4GdTMBRoEROp2ADAGCAiaqjzRby0XjRM'
-    })
+      apiKey: 'AIzaSyAJr5f3WhbdybWw6fxgx6W21Ht4xvpMsYs'
+    }),
+    SocialLoginModule
   ],
-  providers: [HttpService],
+  providers: [HttpService, {
+    provide: AuthServiceConfig,
+    useFactory: provideConfig
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
