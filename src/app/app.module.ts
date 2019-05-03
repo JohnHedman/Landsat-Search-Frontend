@@ -12,6 +12,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { SceneItemComponent } from './scene-item/scene-item.component';
@@ -24,6 +26,7 @@ import { AgmCoreModule } from '@agm/core';
 import { GoogleSigninComponent } from './google-signin/google-signin.component';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider} from "angularx-social-login";
+import { ListgridComponent } from './listgrid/listgrid.component';
 
 let config = new AuthServiceConfig([
   {
@@ -45,7 +48,8 @@ export function provideConfig() {
     SearchInputComponent,
     SearchInputComponent,
     GoogleMapComponent,
-    GoogleSigninComponent
+    GoogleSigninComponent,
+    ListgridComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +66,8 @@ export function provideConfig() {
     MatDatepickerModule,
     MatNativeDateModule,
     MatMenuModule,
+    MatGridListModule,
+    MatCardModule,
     HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAJr5f3WhbdybWw6fxgx6W21Ht4xvpMsYs'

@@ -50,6 +50,7 @@ export class SceneCatalogComponent implements OnInit {
     this.currentlySearching = false;
   }
 
+
   checkResponse(response) {
     const bucketURL = 'https://s3-us-west-2.amazonaws.com/landsat-pds/';
     const results = JSON.parse(response._body).hits.hits;
