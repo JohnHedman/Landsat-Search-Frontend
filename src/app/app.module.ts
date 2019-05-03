@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatMenuModule } from '@angular/material/menu';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { SceneItemComponent } from './scene-item/scene-item.component';
@@ -27,7 +28,7 @@ import { GoogleLoginProvider} from "angularx-social-login";
 let config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
-    provider: new GoogleLoginProvider("Google-OAuth-Client-Id")
+    provider: new GoogleLoginProvider("537968986396-a6llmb6dsb72fmtv8hv3ooks1jpqlcfo.apps.googleusercontent.com")
   }
 ]);
 
@@ -60,6 +61,7 @@ export function provideConfig() {
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatMenuModule,
     HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAJr5f3WhbdybWw6fxgx6W21Ht4xvpMsYs'

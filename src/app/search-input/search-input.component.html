@@ -21,13 +21,13 @@
     <div fxLayout="row" fxLayoutGap="2%" gdColumns="50% 50%">
 
       <mat-form-field appearance="outline">
-        <mat-label>Cloud Cover</mat-label>
+        <mat-label>Max Cloud Coverage %</mat-label>
         <input matInput type="number" formControlName="cloud_cover">
         <mat-icon matSuffix>cloud</mat-icon>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>Sun Elevation</mat-label>
+        <mat-label>Max Sun Elevation %</mat-label>
         <input matInput type="number" formControlName="sun_elevation">
         <mat-icon matSuffix>wb_sunny</mat-icon>
       </mat-form-field>
@@ -52,7 +52,7 @@
 
     </div>
 
-    <button mat-icon-button (click)="onSearch()">
+    <button mat-icon-button>
       <mat-icon>search</mat-icon>
     </button>
   </form>
