@@ -24,7 +24,8 @@ export class MenuToolbarComponent implements OnInit {
   }
 
   login(user: string) {
-    this.userService.currentUser.name = user;
+    this.currentUser = this.userService.userNames.find(userName => userName.name === user);
+    this.userService.currentUser = this.currentUser;
   }
 
 }
