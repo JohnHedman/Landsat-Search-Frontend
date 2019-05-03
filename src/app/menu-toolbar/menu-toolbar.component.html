@@ -1,5 +1,5 @@
 <mat-menu #userMenu>
-  <button (click)="currentUser = user" *ngFor="let user of userNames" mat-menu-item>{{ user.name }}</button>
+  <button (click)="login(user.name)" *ngFor="let user of userNames" mat-menu-item>{{ user.name }}</button>
 </mat-menu>
 
 <mat-toolbar color="primary">
