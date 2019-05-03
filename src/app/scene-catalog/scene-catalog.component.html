@@ -1,22 +1,4 @@
-<mat-form-field appearance="outline">
-    <mat-label>Latitude</mat-label>
-    <input
-        matInput
-        type="number"
-        [(ngModel)]="latitudeInput">
-</mat-form-field>
-
-<mat-form-field appearance="outline">
-    <mat-label>Longitude</mat-label>
-    <input
-        matInput
-        type="number"
-        [(ngModel)]="longitudeInput">
-</mat-form-field>
-
-<button
-    mat-icon-button
-    (click)="onSearchElastic()"><mat-icon>search</mat-icon></button>
+<app-search-input></app-search-input>
 
 <!-- <p *ngIf="expression">No Results found.  Try to widen your search!</p> -->
 <h3 *ngIf="currentlySearching">Searching ...</h3>
