@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card class="cards">
   <mat-grid-list cols="4" rowHeight="100px">
       <mat-grid-tile [rowspan]="2"> <!-- TILE #1 -->
           <input type="image" [src]="scene.large_thumbnail" alt="Image">
@@ -10,8 +10,7 @@
           Cloud Cover: {{scene.cloud_cover}}
       </mat-grid-tile>
       <mat-grid-tile class="tiles"> <!-- TILE #4 -->
-          WRS Path: {{scene.wrs_path}}<br>
-          WRS Row:{{scene.wrs_row}}
+          WRS Path: {{scene.wrs_path}}
       </mat-grid-tile>
       <mat-grid-tile class="tiles"> <!-- TILE #5 -->
           Date: {{scene.date}}
@@ -20,7 +19,8 @@
           Sun Elevation: {{scene.sun_elevation}}
       </mat-grid-tile>
       <mat-grid-tile class="tiles"> <!-- TILE #7 -->
-        <button mat-button (click)="onSaveScene()">Save</button>
+            WRS Path: {{scene.wrs_path}}
       </mat-grid-tile>
   </mat-grid-list>
+  <mat-card-actions><button mat-button (click)="onSaveScene()">Save</button></mat-card-actions>
 </mat-card>
