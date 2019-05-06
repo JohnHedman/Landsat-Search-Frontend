@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Coordinates } from '../google-map/google-map.component';
 
 @Component({
   selector: 'app-search-input',
@@ -10,9 +11,14 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class SearchInputComponent {
   @Output() search = new EventEmitter<any>();
 
+  coordinates: Coordinates = {
+    latitude: 44.3114,
+    longitude: -96.7984
+  };
+
   searchForm = new FormGroup({
-    longitude: new FormControl(-96, Validators.required),
-    latitude: new FormControl(44, Validators.required),
+    longitude: new FormControl(null, Validators.required),
+    latitude: new FormControl(null, Validators.required),
     cloud_cover: new FormControl(),
     sun_elevation: new FormControl(),
     start_date: new FormControl(),
@@ -20,6 +26,7 @@ export class SearchInputComponent {
   });
 
   onSearch() {
+    console.log(this.coordinates);
     if (this.searchForm.valid) {
       this.search.emit(this.searchForm.value);
     }
